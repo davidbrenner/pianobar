@@ -251,7 +251,8 @@ PianoReturn_t PianoRequest (PianoHandle_t *ph, PianoRequest_t *req,
 					snprintf (xmlSendBuf, sizeof (xmlSendBuf), 
 							"<?xml version=\"1.0\"?><methodCall>"
 							"<methodName>misc.sync</methodName>"
-							"<params></params></methodCall>");
+                            "<params><param><value><string>%32s</string></value></param></params></methodCall>",
+                            logindata->key);
 					snprintf (req->urlPath, sizeof (req->urlPath), PIANO_RPC_PATH
 							"rid=%s&method=sync", ph->routeId);
 					break;

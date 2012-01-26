@@ -84,6 +84,7 @@ typedef struct {
 	PianoAudioFormat_t audioFormat;
 	char *username;
 	char *password;
+	char *key;
 	char *controlProxy; /* non-american listeners need this */
 	char *proxy;
 	char *autostartStation;

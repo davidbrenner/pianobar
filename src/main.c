@@ -80,6 +80,7 @@ static bool BarMainLoginUser (BarApp_t *app) {
 
 	reqData.user = app->settings.username;
 	reqData.password = app->settings.password;
+	reqData.key = app->settings.key;
 	reqData.step = 0;
 
 	BarUiMsg (&app->settings, MSG_INFO, "Login... ");

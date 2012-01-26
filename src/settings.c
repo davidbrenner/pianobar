@@ -84,6 +84,7 @@ void BarSettingsDestroy (BarSettings_t *settings) {
 	free (settings->proxy);
 	free (settings->username);
 	free (settings->password);
+	free (settings->key);
 	free (settings->autostartStation);
 	free (settings->eventCmd);
 	free (settings->loveIcon);
@@ -177,6 +178,8 @@ void BarSettingsRead (BarSettings_t *settings) {
 			settings->username = strdup (val);
 		} else if (streq ("password", key)) {
 			settings->password = strdup (val);
+		} else if (streq ("key", key)) {
+			settings->key = strdup (val);
 		} else if (memcmp ("act_", key, 4) == 0) {
 			size_t i;
 			/* keyboard shortcuts */

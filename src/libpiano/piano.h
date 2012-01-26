@@ -165,6 +165,7 @@ typedef struct PianoRequest {
 typedef struct {
 	char *user;
 	char *password;
+	char *key;
 	unsigned char step;
 } PianoRequestDataLogin_t;
 
