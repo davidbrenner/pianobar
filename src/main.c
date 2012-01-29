@@ -108,6 +108,12 @@ static void BarMainGetLoginCredentials (BarSettings_t *settings,
 		puts ("");
 		settings->password = strdup (passBuf);
 	}
+	if (settings->key == NULL) {
+		char keyBuf[100];
+		BarUiMsg (settings, MSG_QUESTION, "Key: ");
+		BarReadlineStr (keyBuf, sizeof (keyBuf), input, BAR_RL_DEFAULT);
+		settings->key = strdup (keyBuf);
+	}
 }
 
 /*	get station list

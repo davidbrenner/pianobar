@@ -195,7 +195,15 @@ int BarUiPianoCall (BarApp_t * const app, PianoRequestType_t type,
 				reqData.password = app->settings.password;
 				reqData.step = 0;
 
-				BarUiMsg (&app->settings, MSG_NONE, "Reauthentication required... ");
+				BarUiMsg (&app->settings, MSG_NONE, "Reauthentication required... \n");
+
+                // prompt for key
+				char keyBuf[100];
+				BarUiMsg (&app->settings, MSG_QUESTION, "Key: ");
+				BarReadlineStr (keyBuf, sizeof (keyBuf), &app->input, BAR_RL_DEFAULT);
+				app->settings.key = strdup (keyBuf);
+				reqData.key = app->settings.key;
+
 				if (!BarUiPianoCall (app, PIANO_REQUEST_LOGIN, &reqData, &authpRet,
 						&authwRet)) {
 					*pRet = authpRet;
